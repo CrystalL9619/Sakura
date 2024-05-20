@@ -1,0 +1,467 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#alternative {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+#dialog {
+  width: 280px;
+  height: 180px;
+  padding-top: 40px;
+  padding-left: 30px;
+  border-radius: 10%;
+  border: 2px black;
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  background-color: #f1abbe;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#talk {
+  font-size: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+
+  --count: 16;
+  animation: typing 4.8s steps(var(--count)) forwards;
+}
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: calc(var(--count) * 25px);
+  }
+}
+.choice {
+  margin: 20px;
+  display: none;
+}
+
+button {
+  width: 50px;
+  height: 30px;
+  background-color: #f1abbe;
+  border-radius: 10%;
+  box-shadow: 2px rgb(148, 145, 145, 145);
+}
+
+.flower {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+.flower img {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+}
+
+.flower img:nth-child(1) {
+  left: 20%;
+  animation: animate 20s linear infinite;
+}
+.flower img:nth-child(2) {
+  left: 50%;
+  animation: animate 20s -2s linear infinite;
+}
+.flower img:nth-child(3) {
+  left: 70%;
+  animation: animate 12s -3s linear infinite;
+}
+.flower img:nth-child(4) {
+  left: 5%;
+  animation: animate 15s -2s linear infinite;
+}
+.flower img:nth-child(5) {
+  left: 85%;
+  animation: animate 18s -1s linear infinite;
+}
+.flower img:nth-child(6) {
+  left: 90%;
+  animation: animate 12s -1s linear infinite;
+}
+.flower img:nth-child(7) {
+  left: 15%;
+  animation: animate 14s -2s linear infinite;
+}
+.flower img:nth-child(8) {
+  left: 60%;
+  animation: animate 15s -1s linear infinite;
+}
+.flower img:nth-child(9) {
+  left: 30%;
+  animation: animate 18s -3s linear infinite;
+}
+.flower img:nth-child(10) {
+  left: 10%;
+  animation: animate 12s -1s linear infinite;
+}
+.flower img:nth-child(11) {
+  left: 40%;
+  animation: animate 10s -2s linear infinite;
+}
+.flower img:nth-child(12) {
+  left: 50%;
+  animation: animate 14s -1s linear infinite;
+}
+@keyframes animate {
+  0% {
+    opacity: 0;
+    top: -10px;
+    transform: translateX(20px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-20px) rotate(45deg);
+  }
+  40% {
+    transform: translateX(-20px) rotate(90deg);
+  }
+  60% {
+    transform: translateX(20px) rotate(180deg);
+  }
+  80% {
+    transform: translateX(-20px) rotate(45deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(20px) rotate(225deg);
+  }
+}
+#tarot {
+  display: none;
+}
+.guess {
+  width: 200px;
+  height: 250px;
+  position: relative;
+  top: 10%;
+  left: 30%;
+}
+.guess .card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: rgba(255, 255, 255, 0.8);
+  background-size: cover;
+  border-radius: 15px;
+}
+.content img {
+  position: absolute;
+  top: 2.5%;
+  left: 10%;
+  width: 200px;
+  height: 250px;
+}
+.guess .details {
+  width: 200px;
+  height: 250px;
+  color: #fff;
+  background: #f1abbe;
+  text-align: center;
+  border-radius: 15px;
+  transform: rotateY(180deg);
+}
+.guess .details p {
+  width: 90%;
+  margin: 20% 10% 0 10%;
+  border-radius: 15px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  font-size: larger;
+}
+
+.guess .card,
+.guess .details {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  backface-visibility: hidden;
+}
+.guess .card,
+.guess .details {
+  transition: transform 1.5s;
+}
+
+.guess.show-details .card {
+  transform: rotateY(-180deg);
+}
+
+.guess.show-details .details {
+  transform: rotateY(0deg);
+}
+
+.guess .card,
+.guess .details {
+  transform-style: preserve-3d;
+}
+.threeD {
+  backface-visibility: hidden;
+  transform: translateZ(60px);
+}
+.luckyNumber {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  width: 200px;
+  height: 100px;
+  border-radius: 25px;
+  background-color: #a795bf;
+  color: #fff;
+  text-align: center;
+}
+#lucky {
+  margin-top: 20px;
+}
+
+.bgcard img {
+  position: absolute;
+
+  width: 200px;
+  height: 260px;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  transition: transform 1.5s;
+}
+
+.bgcard img:nth-child(1) {
+  bottom: 7.5%;
+  left: 10%;
+  transform: rotate(-20deg);
+}
+.bgcard img:nth-child(2) {
+  bottom: 8.2%;
+  left: 13%;
+  transform: rotate(-18deg);
+}
+.bgcard img:nth-child(3) {
+  bottom: 8.9%;
+  left: 16%;
+  transform: rotate(-16deg);
+}
+.bgcard img:nth-child(4) {
+  bottom: 9.6%;
+  left: 19%;
+  transform: rotate(-14deg);
+}
+.bgcard img:nth-child(5) {
+  bottom: 10.3%;
+  left: 22%;
+  transform: rotate(-12deg);
+}
+.bgcard img:nth-child(6) {
+  bottom: 11%;
+  left: 25%;
+  transform: rotate(-10deg);
+}
+.bgcard img:nth-child(7) {
+  bottom: 11.3%;
+  left: 28%;
+  transform: rotate(-8deg);
+}
+.bgcard img:nth-child(8) {
+  bottom: 11.6%;
+  left: 31%;
+  transform: rotate(-6deg);
+}
+.bgcard img:nth-child(9) {
+  bottom: 12%;
+  left: 34%;
+  transform: rotate(-4deg);
+}
+.bgcard img:nth-child(10) {
+  bottom: 12.3%;
+  left: 37%;
+  transform: rotate(-2deg);
+}
+.bgcard img:nth-child(11) {
+  bottom: 12.6%;
+  left: 40%;
+  transform: rotate(0deg);
+}
+
+.bgcard img:nth-child(11) {
+  bottom: 12.6%;
+  left: 40%;
+  transform: rotate(0deg);
+}
+.bgcard img:nth-child(12) {
+  bottom: 12.6%;
+  left: 43%;
+  transform: rotate(2deg);
+}
+.bgcard img:nth-child(13) {
+  bottom: 12.3%;
+  left: 46%;
+  transform: rotate(4deg);
+}
+.bgcard img:nth-child(14) {
+  bottom: 12%;
+  left: 49%;
+  transform: rotate(6deg);
+}
+.bgcard img:nth-child(15) {
+  bottom: 11.6%;
+  left: 52%;
+  transform: rotate(8deg);
+}
+.bgcard img:nth-child(16) {
+  bottom: 11.3%;
+  left: 55%;
+  transform: rotate(10deg);
+}
+.bgcard img:nth-child(17) {
+  bottom: 11%;
+  left: 58%;
+  transform: rotate(12deg);
+}
+.bgcard img:nth-child(18) {
+  bottom: 10.6%;
+  left: 61%;
+  transform: rotate(14deg);
+}
+.bgcard img:nth-child(19) {
+  bottom: 9.6%;
+  left: 64%;
+  transform: rotate(16deg);
+}
+.bgcard img:nth-child(20) {
+  bottom: 8.9%;
+  left: 67%;
+  transform: rotate(18deg);
+}
+.bgcard img:nth-child(21) {
+  bottom: 8.2%;
+  left: 70%;
+  transform: rotate(20deg);
+}
+
+.trans {
+  transform: scale(2) rotate(1440deg) !important;
+}
+#exit {
+  position: absolute;
+  top: 250px;
+  left: 10%;
+}
+
+@media screen and (max-width: 1050px) {
+  .guess .card,
+  .guess .details {
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    width: 180;
+    height: 250px;
+    backface-visibility: hidden;
+  }
+  .luckyNumber {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80px;
+  }
+  .content img {
+    position: absolute;
+    top: 2.5%;
+    left: 10%;
+    width: 180;
+    height: 250px;
+  }
+  .bgcard img {
+    width: 150px;
+    height: 200px;
+  }
+  #exit {
+    position: absolute;
+    top: 200px;
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .guess .card,
+  .guess .details {
+    position: absolute;
+    top: 20px;
+    left: 20%;
+    width: 180;
+    height: 250px;
+    backface-visibility: hidden;
+  }
+  #exit {
+    position: absolute;
+    top: 200px;
+    left: 10%;
+  }
+  .bgcard img {
+    width: 150px;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .guess .card,
+  .guess .details {
+    position: absolute;
+    top: 20px;
+    left: 20%;
+    width: 180;
+    height: 250px;
+    backface-visibility: hidden;
+  }
+  .luckyNumber {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80px;
+  }
+  .bgcard img {
+    width: 100px;
+    height: 150px;
+  }
+  #exit {
+    position: absolute;
+    top: 200px;
+    left: 10%;
+  }
+}
