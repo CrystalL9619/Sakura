@@ -19,9 +19,9 @@ function pageready() {
   // Hide the dialog and choice buttons initially
   dialog.style.display = "none";
   choiceButtons.style.display = "none";
-  luckyNumber.style.display = "none";
+  /*luckyNumber.style.display = "none";
   bgcard.style.display = "none";
-  exit.style.display = "none";
+  exit.style.display = "none";*/
 
   // Show the dialog after 3 seconds
   setTimeout(() => {
