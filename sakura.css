@@ -440,6 +440,22 @@ button {
 }
 
 @media screen and (max-width: 480px) {
+  #background,
+  #alternative {
+    width: 100 vh;
+    height: 100 vw;
+  }
+  #dialog {
+    width: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+  }
+  .choice {
+    width: 80%;
+    margin-top: 20px;
+    padding: 0;
+  }
   .guess .card,
   .guess .details {
     position: absolute;
